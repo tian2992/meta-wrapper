@@ -1,11 +1,8 @@
 version: "3"
-networks:
-  default:
-    external:
-      name: bridge
 services:
   proxy:
     image: steamcache/sniproxy:latest
+    network_mode: "host"
     ports:
       - "443"
     deploy:
