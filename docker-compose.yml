@@ -1,0 +1,13 @@
+version: "3"
+services:
+
+  proxy:
+    image: steamcache/sniproxy:latest
+    ports:
+      - "443"
+    deploy:
+      restart_policy:
+        condition: on-failure
+    network: host
+    volumes:
+      - "${PWD}/sniproxy.conf:/etc/sniproxy.conf"  
