@@ -1,6 +1,9 @@
 version: "3"
+networks:
+  default:
+    external:
+      name: bridge
 services:
-
   proxy:
     image: steamcache/sniproxy:latest
     ports:
@@ -8,6 +11,5 @@ services:
     deploy:
       restart_policy:
         condition: on-failure
-    network: host
     volumes:
       - "${PWD}/sniproxy.conf:/etc/sniproxy.conf"  
